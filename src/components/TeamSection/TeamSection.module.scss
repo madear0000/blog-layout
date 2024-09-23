@@ -1,0 +1,58 @@
+@import '../../style/components-style.scss';
+
+.uorTeam {
+    height: 480px;
+    margin-top: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &--reverse {
+        flex-direction: row-reverse;
+    }
+
+    &__text {
+        width: 516px;
+        height: 316px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        &__title {
+            font-family: Sen;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 48px;
+            letter-spacing: -2px;
+        }
+
+        &__subtitle {
+            font-family: Sen;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 32px;
+        }
+
+        &__info {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+            color: grey;
+        }
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .uorTeam {
+        flex-direction: column;
+        height: 680px;
+        justify-content: space-around;
+        &__text {
+            width: 100%;
+        }
+        &__image {
+            width: 100%
+        }
+    }
+}

@@ -1,0 +1,35 @@
+@import '../../style/components-style.scss';
+
+.footer {
+    background-color: $purple-color;
+    height: 160px;
+    bottom: 0;
+    width: 100%;
+
+    &__adress {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 28px;
+        color: grey;
+    }
+
+    &__nets {
+        display: flex;
+        width: 144px;
+        justify-content: space-between;
+    }
+
+    &__line {
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+}
+
+.icons {
+    color: grey;
+    text-decoration: none;
+}

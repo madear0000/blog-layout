@@ -1,0 +1,82 @@
+@import '../../style/components-style.scss';
+
+.groupButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.groupButton {
+    width: 296px;
+    height: 228px;
+    background: none;
+    border: 1px solid #6D6E76;
+    border-radius: 8px;
+    transition: 0.3s;
+    padding-top: 96px;
+
+    &__title {
+        font-family: Sen;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: -1px;
+        text-align: center;
+    }
+
+    &__text {
+        color: #6D6E76;
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: left;
+
+    }
+}
+
+.active {
+    background-color: $orange-color;
+    border: none;
+}
+
+.CategoryButtonsSection {
+    margin-top: 50px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media  screen and (max-width: 768px) {
+    .groupButton {
+        width: 150px;
+        height: 110px;
+        padding: 0;
+
+        &__text {
+            display: none;
+        }
+    }
+
+    .CategoryButtonsSection {
+        margin-top: 50px;
+        height: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media  screen and (max-width: 567px) {
+    .groupButtons {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .groupButton {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+}

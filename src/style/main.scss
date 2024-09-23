@@ -1,0 +1,31 @@
+.container {
+    position: absolute;
+    width: 1282px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+@media  screen and (max-width: 768px) {
+    .container{
+        width: 600px; 
+    }
+}
+
+@media  screen and (max-width: 567px) {
+    .container{
+        width: 400px; 
+    }
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%; 
+}
+
+
+
+
+
+
+

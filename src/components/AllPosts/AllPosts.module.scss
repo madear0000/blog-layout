@@ -1,0 +1,110 @@
+@import '../../style/components-style.scss';
+
+.onePost {
+    width: 517px;
+    height: 181px;
+
+    &__namePerson {
+        font-family: Inter;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    &__title {
+        font-family: Sen;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        text-align: left;
+
+    }
+}
+
+.pagePost {
+    padding-top: 64px;
+    height: 2300px;
+}
+
+
+.post {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px; 
+
+    &__info {
+        width: 624px;
+    }
+
+    &__group {
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: 3px;
+        text-align: left;
+    }
+
+    &__text {
+        display: -webkit-box;
+        -webkit-line-clamp: 3; 
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: left;
+        color: grey;
+    }
+
+    &__title {
+        font-family: Sen;
+        font-size: 36px;
+        font-weight: 500;
+        line-height: 48px;
+        letter-spacing: -2px;
+        text-align: left;
+
+    }
+}
+
+
+.AllPostsBlogPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    flex-grow: 1;
+}
+
+
+.pagination {
+    display: flex;
+    justify-content: center; 
+    margin-top: auto; 
+
+    &__button {
+        background: none;
+        border: none;
+        font-family: Sen;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+        text-align: center;
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .post {
+        &__image {
+           display: none;
+        }
+    }
+
+    .pagePost {
+        height: 2000px;
+    }
+}

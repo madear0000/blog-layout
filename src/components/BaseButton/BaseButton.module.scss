@@ -1,0 +1,25 @@
+@import '../../style/components-style.scss';
+
+.baseButton {
+    width: 179px;
+    height: 56px;
+    border: none;
+    border-radius: 4px;
+
+    &--white {
+        background-color: white;
+    }
+
+    &--orange {
+        background-color: $orange-color;
+    }
+}
+
+@media  screen and (max-width: 768px) {
+    .baseButton {
+        width: 100px;
+        height: 40px;
+        font-size: 13px;
+    }
+}
+

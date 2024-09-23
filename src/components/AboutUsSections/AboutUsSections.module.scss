@@ -1,0 +1,191 @@
+@import '../../style/components-style.scss';
+
+.AboutUsSections {
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+
+.teamContent {
+    height: 364px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    width: 1133px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    &__main {
+        background-color: white;
+        width: 624px;
+        padding-top: 64px;
+        padding-left: 64px;
+
+        &__title {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            letter-spacing: 3px;
+            text-align: left;
+
+        }
+
+        &__subtitle {
+            font-family: Sen;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: -2px;
+            text-align: left;
+
+        }
+    }
+
+    &__text {
+        width: 409px;
+        padding-top: 64px;
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: left;
+        color: #4C4C4C;
+    }
+}
+
+.ourVisions {
+    margin-top: 250px;
+
+
+    &__numberUsers {
+        display: flex;
+        width: 100%;
+        height: 156px;
+        position: absolute;
+        background-color: $orange-color;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    &__info {
+        &__title {
+            font-family: Sen;
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: -2px;
+        }
+
+        &__subtitle {
+            font-family: Inter;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 28px;
+        }
+
+    }
+}
+
+.someAuthors {
+    margin-top: 200px;
+    width: 100%;
+    height: 776px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+        font-family: Sen;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: -2px;
+        text-align: center;
+    }
+
+    &__area {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    
+}
+
+@media  screen and (max-width: 768px) {
+    .teamContent {
+        width: 640px;
+        height: 200px;
+
+        &__main {
+            padding-top: 64px;
+            
+    
+            &__title {
+                font-family: Inter;
+                font-size: 13px;
+                font-weight: 500;
+                line-height: 20px;
+                letter-spacing: 3px;
+                text-align: left;
+    
+            }
+    
+            &__subtitle {
+                font-family: Sen;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 64px;
+                letter-spacing: -2px;
+                text-align: left;
+    
+            }
+        }
+    }
+
+    .ourVisions {
+        &__image {
+            width: 100%;
+        }
+    }
+}
+
+@media  screen and (max-width: 567px) {
+    .teamContent__text {
+        display: none;
+    }
+
+    .teamContent {
+        width: 400px;
+    }
+
+    .ourVisions {    
+        &__info {
+            &__title {
+                font-family: Sen;
+                font-size: 36px;
+                font-weight: 700;
+                line-height: 64px;
+                letter-spacing: -2px;
+            }
+    
+            &__subtitle {
+                font-family: Inter;
+                font-size: 10px;
+                font-weight: 400;
+                line-height: 28px;
+            }
+    
+        }
+    }
+
+    .someAuthors__area {
+        width: 100%;
+        justify-content: center;
+    }
+}
