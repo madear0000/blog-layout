@@ -20,6 +20,7 @@ export default function App() {
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/blog-post/:id" element={<BlogPost />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
     

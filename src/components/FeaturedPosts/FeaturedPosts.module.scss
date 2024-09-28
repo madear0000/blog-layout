@@ -90,6 +90,7 @@
 
 @media screen and (max-width: 768px) {
     .featuredPosts {
+        height: 2000px;
         &__position {
             display: flex;
             flex-direction: column;

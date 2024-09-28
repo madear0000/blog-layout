@@ -4,9 +4,8 @@ import ourVisionsImg from '../../assets/img/aboutUs.png';
 import TeamSection from '../TeamSection/TeamSection';
 import firstImg from '../../assets/img/arms.png';
 import secondImg from '../../assets/img/three-people.png';
-import dataOdAuthor  from '../Authors/AuthorsList';
-import Authors from '../Authors/Authors';
 import JoinTeam from '../JoinTeam/JoinTeam';
+import AuthorsOnPage from '../AuthorsOnPage/AuthorsOnPage';
 
 export default function AboutUsSections() {
   const useAnimatedNumber = (targetNumber, duration = 2000) => {
@@ -85,14 +84,7 @@ export default function AboutUsSections() {
         image={secondImg}
       />
 
-      <section className={styles.someAuthors}>
-        <h2 className={styles.someAuthors__title}>List of Authors</h2>
-        <div className={styles.someAuthors__area}>
-          {dataOdAuthor.map((authorName, index) => (
-              <Authors key={index} nameAuthor={authorName} />
-          ))}
-        </div>
-      </section>
+      <AuthorsOnPage />
 
       <JoinTeam />
       </div>
