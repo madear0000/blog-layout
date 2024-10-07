@@ -9,7 +9,6 @@ export default function FeaturedPosts() {
     const navigate = useNavigate();
 
     const handleReadMore = () => {
-        console.log('sosi')
         navigate('/blog-post'); 
     };
 

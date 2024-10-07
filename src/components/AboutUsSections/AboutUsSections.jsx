@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './AboutUsSections.module.scss';
 import ourVisionsImg from '../../assets/img/aboutUs.png';
 import TeamSection from '../TeamSection/TeamSection';
@@ -6,31 +6,9 @@ import firstImg from '../../assets/img/arms.png';
 import secondImg from '../../assets/img/three-people.png';
 import JoinTeam from '../JoinTeam/JoinTeam';
 import AuthorsOnPage from '../AuthorsOnPage/AuthorsOnPage';
+import useAnimatedNumber from '../../hooks/UseAnimatedNumberHook';
 
 export default function AboutUsSections() {
-  const useAnimatedNumber = (targetNumber, duration = 2000) => {
-    const [currentNumber, setCurrentNumber] = useState(0);
-
-    useEffect(() => {
-      let start = 0;
-      const increment = targetNumber / (duration / 16); 
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= targetNumber) {
-          setCurrentNumber(targetNumber);
-          clearInterval(timer);
-        } else {
-          setCurrentNumber(Math.ceil(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer); 
-    }, [targetNumber, duration]);
-
-    return currentNumber;
-  };
-
   const blogsPublished = useAnimatedNumber(12, 2000);
   const viewsOnFinsweet = useAnimatedNumber(18000, 2500);
   const totalActiveUsers = useAnimatedNumber(30000, 3000);
@@ -40,9 +18,7 @@ export default function AboutUsSections() {
       <div className="container">
         <section className={styles.teamContent}>
           <div className={styles.teamContent__main}>
-            <h3 className={styles.teamContent__main__title}>
-              ABOUT US
-            </h3>
+            <h3 className={styles.teamContent__main__title}>ABOUT US</h3>
             <h2 className={styles.teamContent__main__subtitle}>
               We are a team of content writers who share their learnings
             </h2>
@@ -51,8 +27,9 @@ export default function AboutUsSections() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </div>
         </section>
+
         <section className={styles.ourVisions}>
-          <img src={ourVisionsImg} className={styles.ourVisions__image} alt="" />
+          <img src={ourVisionsImg} className={styles.ourVisions__image} alt="Our Visions" />
           <div className={styles.ourVisions__numberUsers}>
             <div className={styles.ourVisions__info}>
               <h4 className={styles.ourVisions__info__title}>{blogsPublished}+</h4>
@@ -68,25 +45,25 @@ export default function AboutUsSections() {
             </div>
           </div>
         </section>
-        <TeamSection
-        title="Our team of creatives"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-        info="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat."
-        isReverse={false}
-        image={firstImg}
-      />
 
         <TeamSection
-        title="Why we started this Blog"
-        subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-        info="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat."
-        isReverse={true} 
-        image={secondImg}
-      />
+          title="Our team of creatives"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+          info="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat."
+          isReverse={false}
+          image={firstImg}
+        />
 
-      <AuthorsOnPage />
+        <TeamSection
+          title="Why we started this Blog"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+          info="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat."
+          isReverse={true}
+          image={secondImg}
+        />
 
-      <JoinTeam />
+        <AuthorsOnPage />
+        <JoinTeam />
       </div>
     </div>
   );
