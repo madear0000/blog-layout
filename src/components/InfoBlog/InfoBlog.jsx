@@ -1,4 +1,5 @@
 import styles from './InfoBlog.module.scss'
+import React from 'react';
 
 export default function InfoBlog() {
     return (

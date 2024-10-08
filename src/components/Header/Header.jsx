@@ -1,27 +1,38 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';  
 import styles from './Header.module.scss';
-import BaseButton from '../BaseButton/BaseButton';
+import Button from '../Button/Button';
+import clsx from 'clsx';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleMenuOpen = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleMenuToggle = () => {
+    setIsMenuOpen((prev) => !prev);
   };
 
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/blog', label: 'Blog' },
+    { to: '/about-us', label: 'About Us' },
+    { to: '/contact-us', label: 'Contact us' }
+  ];
+
   return (
-    <header className={`${styles.header} ${isMenuOpen ? styles['header--open'] : ''}`}>
-      <div className={`container ${styles['header-line']}`}>
+    <header className={clsx(styles.header, { [styles['header--open']]: isMenuOpen })}>
+      <div className={clsx('container', styles['header-line'])}>
         <h1 className={styles.logo}>Finesweet</h1>
-        <nav className={`${styles.header__nav} ${isMenuOpen ? styles['header__nav--open'] : ''}`}>
-          <Link to="/" className={styles.header__nav__point}>Home</Link>
-          <Link to="/blog" className={styles.header__nav__point}>Blog</Link>
-          <Link to="/about-us" className={styles.header__nav__point}>About Us</Link>
-          <Link to="/contact-us" className={styles.header__nav__point}>Contact us</Link>
-          <BaseButton textInButton='Subscribe' color='white' />
+        <nav className={clsx(styles.header__nav, { [styles['header__nav--open']]: isMenuOpen })}>
+          {navLinks.map(({ to, label }) => (
+            <Link key={to} to={to} className={styles.header__nav__point}>
+              {label}
+            </Link>
+          ))}
+          <Button colorScheme='white'>
+            Subscribe
+          </Button>
         </nav>
-        <div onClick={handleMenuOpen} className={styles['burger-menu']} id="burger-menu">
+        <div onClick={handleMenuToggle} className={styles['burger-menu']} aria-label="Toggle menu">
           <span className={styles['burger-bar']}></span>
           <span className={styles['burger-bar']}></span>
           <span className={styles['burger-bar']}></span>

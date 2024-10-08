@@ -1,4 +1,6 @@
 import styles from './BlogPostLayout.module.scss';
+import React from 'react';
+import PropTypes from 'prop-types';
 import postImg from '../../assets/img/post.png'; // это должбыть в mockData но мне лень было искать столько фоток и переписать
 
 export default function BlogPostLayout({ post }) {
@@ -18,4 +20,8 @@ export default function BlogPostLayout({ post }) {
             </div>
         </div>
     )
+}
+
+BlogPostLayout.PropTypes = {
+    post: PropTypes.object.isRequired
 }

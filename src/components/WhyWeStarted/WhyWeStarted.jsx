@@ -1,6 +1,7 @@
 import styles from './WhyWeStarted.module.scss';
-import BaseButton from '../BaseButton/BaseButton';
+import Button from '../Button/Button';
 import friendImg from '../../assets/img/friends.png';
+import React from 'react';
 
 export default function WhyWeStarted() {
     return (
@@ -14,7 +15,9 @@ export default function WhyWeStarted() {
                         <h3 className={styles.whyWeStarted__title}>Why we started</h3>
                         <h2 className={styles.whyWeStarted__subtitle}>It started out as a simple idea and evolved into our passion</h2>
                         <p className={styles.whyWeStarted__text}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                        <BaseButton textInButton='Read More >' color='orange' />
+                        <Button colorScheme='orange'>
+                            Read More
+                        </Button>
                     </div>
                 </div>
             </div>

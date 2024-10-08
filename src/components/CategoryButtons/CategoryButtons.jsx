@@ -1,4 +1,6 @@
 import styles from './CategoryButtons.module.scss';
+import React from 'react';
+import clsx from 'clsx';
 
 const categories = ['business', 'startup', 'economy', 'technology'];
 
@@ -10,7 +12,10 @@ export default function CategoryButtons({ selectedGroup, onGroupChange }) {
             {categories.map(category => (
                 <button
                 key={category}
-                className={`${styles.groupButton} ${selectedGroup === category ? styles.active : ''}`}
+                className={clsx(
+                  styles.groupButton,
+                  selectedGroup === category && styles.active
+                )}
                 onClick={() => onGroupChange(category)}
                 >
                 <h3 className={styles.groupButton__title}>{category.charAt(0).toUpperCase() + category.slice(1)}</h3>
@@ -21,5 +26,6 @@ export default function CategoryButtons({ selectedGroup, onGroupChange }) {
     </div>
   );
 };
+
 
 

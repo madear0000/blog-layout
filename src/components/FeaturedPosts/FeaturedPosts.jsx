@@ -1,9 +1,10 @@
 import styles from './FeaturedPosts.module.scss';
 import cardPhoto from '../../assets/img/Home.png';
-import BaseButton from '../BaseButton/BaseButton';
+import Button from '../Button/Button';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'; 
 import AllPostsMainPage from '../AllPosts/AllPostsMainPage';
+import React from 'react';
 
 export default function FeaturedPosts() {
     const navigate = useNavigate();
@@ -23,7 +24,9 @@ export default function FeaturedPosts() {
                             <p className={styles.previewPostCard__name}>By John Doe l May 23, 2022</p>
                             <h4 className={styles.previewPostCard__title}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</h4>
                             <p className={styles.previewPostCard__text}>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                            <BaseButton textInButton='Read More >' color='orange' onClick={handleReadMore} /> 
+                            <Button colorScheme='orange' onClick={handleReadMore}>
+                                    Read More
+                            </Button> 
                         </div>
                     </div>
                     <div className={styles.featuredPosts__right}>

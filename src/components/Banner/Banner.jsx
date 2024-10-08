@@ -1,5 +1,7 @@
 import styles from './Banner.module.scss';
-import BaseButton from '../BaseButton/BaseButton';
+import Button from '../Button/Button';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Banner({ useBanner = true }) {
     const currentStyle = useBanner ? styles.banner : styles.blogBanner;
@@ -16,9 +18,15 @@ export default function Banner({ useBanner = true }) {
                     <p className={useBanner ? styles.banner__text : styles.blogBanner__text}>
                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
                     </p>
-                    <BaseButton textInButton='Read More >' color='orange'/>
+                    <Button  colorScheme='orange'>
+                        Read More 
+                    </Button>
                 </div>
             </div>
         </section>
     );
 }
+
+Banner.propTypes = {
+    useBanner: PropTypes.bool.isRequired
+};

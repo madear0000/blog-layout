@@ -1,6 +1,7 @@
 import dataOdAuthor from '../Authors/AuthorsList';
 import Authors from '../Authors/Authors';
 import styles from './AuthorsOnPage.module.scss';
+import React from 'react';
 
 export default function AuthorsOnPage() {
     return (
