@@ -1,6 +1,6 @@
 .formSection {
     padding-top: 128px;
-    height: 800px;
+    height: 1200px;
     &__text {
         height: 176px;
         display: flex;
@@ -35,7 +35,7 @@
     }
 
     &__size {
-        height: 626px;
+        height: 1000px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -44,7 +44,7 @@
 }
 
 .form {
-    height: 350px;
+    height: 850px;
     width: 768px;
     display: flex;
     flex-direction: column;

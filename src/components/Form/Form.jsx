@@ -1,11 +1,14 @@
-// components/Form/Form.js
 import styles from './Form.module.scss';
 import Button from '../Button/Button';
 import React from 'react';
-import { useForm } from '../../hooks/AddUser';
+import { useForm } from "react-hook-form";
 
 export default function Form() {
-    const { formData, handleChange, handleSubmit } = useForm();
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data);
+    }
 
     return (
         <div className={styles.formSection}>
@@ -16,34 +19,57 @@ export default function Form() {
                         <h1 className={styles.formtion__subtitle}>Let’s Start a Conversation</h1>
                         <p className={styles.formSection__info}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</p>
                     </div>
-                    <form onSubmit={handleSubmit} className={styles.form}>
+                    <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
                         <input 
                             className={styles.form__input} 
                             name='userName' 
                             type="text" 
-                            placeholder='Full Name' 
-                            value={formData.userName} 
-                            onChange={handleChange} 
+                            placeholder='Full Nam' 
+                            {...(register('name'), {required: true})}
+                            
                         />
                         <input 
                             className={styles.form__input} 
                             name='userMail' 
                             type="email" 
-                            placeholder='Email' 
-                            value={formData.userMail} 
-                            onChange={handleChange} 
+                            placeholder='Email'
+                            {...(register('mail'), {required: true})}
                         />
                         <input 
                             className={styles.form__input} 
                             name='userMessage' 
                             type="text" 
-                            placeholder='Message' 
-                            value={formData.userMessage} 
-                            onChange={handleChange} 
+                            placeholder='Message'
+                            {...(register('text'), {required: true})}
                         />
-                        <Button colorScheme='orange' sizeOfButton='100'>
+                        <Button 
+                            colorScheme='primary' 
+                            sizeOfButton='xs'
+                            variant='link'
+                            >
                             send a message
-                        </Button>
+                        </Button> <br />
+                        <Button 
+                            colorScheme='danger' 
+                            sizeOfButton='sm'
+                            variant='ghost'
+                            >
+                            send a message
+                        </Button> <br />
+                        <Button 
+                            colorScheme='primary' 
+                            sizeOfButton='md'
+                            variant='outline'
+                            isDisabled
+                            >
+                            send a message
+                        </Button> <br />
+                        <Button 
+                            colorScheme='whiteAlpha' 
+                            sizeOfButton='lg'
+                            >
+                            send a message
+                        </Button> <br />
                     </form>
                 </div>
             </div>

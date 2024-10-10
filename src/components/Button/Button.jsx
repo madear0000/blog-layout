@@ -3,25 +3,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
-export default function Button({ children, colorScheme, onClick, sizeOfButton }) {
+export default function Button({ children, colorScheme, onClick, sizeOfButton, variant, isDisabled }) {
     return (
-        <button 
+        <button
             className={clsx(
                 styles.baseButton, 
                 colorScheme && styles[`baseButton--${colorScheme}`], 
-                sizeOfButton && styles[`baseButton--${sizeOfButton}`] 
+                sizeOfButton && styles[`baseButton--${sizeOfButton}`],
+                variant && styles[`baseButton--${variant}`],
             )}
-            onClick={onClick}
-
+            onClick={!isDisabled ? onClick : undefined} 
+            disabled={isDisabled} 
         >
             {children}
         </button>
     );
 }
 
-Button.PropTypes = {
+Button.propTypes = {
     children: PropTypes.node,
     colorScheme: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-    width: PropTypes.string.isRequired
-}
+    onClick: PropTypes.func,
+    sizeOfButton: PropTypes.string,
+    variant: PropTypes.string,
+    isDisabled: PropTypes.bool, 
+};
+
+Button.defaultProps = {
+    onClick: () => {},
+    sizeOfButton: 'md', 
+    variant: 'default', 
+    isDisabled: false, 
+};
