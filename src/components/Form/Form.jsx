@@ -2,6 +2,8 @@ import styles from './Form.module.scss';
 import Button from '../Button/Button';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCableCar } from '@fortawesome/free-solid-svg-icons';
 
 export default function Form() {
     const { register, handleSubmit } = useForm();
@@ -45,7 +47,7 @@ export default function Form() {
                         <Button 
                             colorScheme='primary' 
                             sizeOfButton='xs'
-                            variant='link'
+                            rightIcon={<FontAwesomeIcon icon={faCableCar} />}
                             >
                             send a message
                         </Button> <br />
