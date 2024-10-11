@@ -1,42 +1,44 @@
+$primary: #007bff;
+$secondary: #6c757d;
+$danger: #dc3545;
+$primary-rgb: 0, 123, 255;
+$secondary-rgb:  108, 117, 125;
+$danger-rgb:  220, 53, 69;
+
+@mixin variant($color, $rgb-color) {
+    background-color: $color;
+    color: white;
+    --button-color-rgb: $rgb-color;
+    --main-color: $color;
+
+    &:hover {
+        background-color: darken($color, 10%);
+    }
+}
+
+@mixin size($verticalPadding, $horizantalPadding, $fontSize) {
+    padding: $verticalPadding $horizantalPadding;
+    font-size: $fontSize;
+}
+
 .baseButton {
     padding: 15px 30px;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 16px; 
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 
     &--primary {
-        background-color: #007bff;
-        color: white;
-        --main-color-rgb: 0, 123, 255;
-        --main-color: #007bff;
-
-        &:hover {
-            background-color: darken(#007bff, 10%); 
-        }
+        @include variant($primary, $primary-rgb);
     }
 
     &--secondary {
-        background-color: #6c757d;
-        color: white;
-        --main-color-rgb: 108, 117, 125;
-        --main-color: #6c757d;
-
-        &:hover {
-            background-color: darken(#6c757d, 10%); 
-        }
+        @include variant($secondary, $secondary-rgb);
     }
 
     &--danger {
-        background-color: #dc3545;
-        color: white;
-        --main-color-rgb: 220, 53, 69;
-        --main-color: #dc3545;
-
-        &:hover {
-            background-color: darken(#dc3545, 10%); 
-        }
+        @include variant($danger, $danger-rgb);
     }
 
 
@@ -72,18 +74,15 @@
     }
 
     &--sm {
-        padding: 10px 20px;
-        font-size: 14px;
+        @include size(10px, 20px, 14px);
     }
 
     &--md {
-        padding: 15px 30px;
-        font-size: 16px;
+        @include size(15px, 30px, 16px);
     }
 
     &--lg {
-        padding: 20px 40px;
-        font-size: 18px;
+        @include size(20px, 40px, 18px);
     }
 
     &:disabled {

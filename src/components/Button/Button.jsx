@@ -5,22 +5,26 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
-export default function Button({ children, colorScheme, onClick, sizeOfButton, variant, isDisabled, leftIcon, rightIcon }) {
+export default function Button(props) {
+    const { children, colorScheme, onClick, sizeOfButton, variant, isDisabled, leftIcon, rightIcon } = props;
+
     const renderIcon = (icon) => {
-        if (icon === 'string') {
-            switch (icon) {
-                case 'settings':
-                    return <FontAwesomeIcon icon={faCog} />;
-                case 'email':
-                    return <FontAwesomeIcon icon={faEnvelope} />;
-                case 'phone':
-                    return <FontAwesomeIcon icon={faPhone} />;
-                default:
-                    return null;
-            }
-        }
-        return icon;
+        const iconsMap = {
+            settings: <FontAwesomeIcon icon={faCog} />,
+            email: <FontAwesomeIcon icon={faEnvelope} />,
+            phone: <FontAwesomeIcon icon={faPhone} />,
+        };
+    
+        return iconsMap[icon] || icon || null;
     };
+
+    const handleClick = (event) => {
+        if (isDisabled) {
+            return;
+        }
+
+        onClick?.(event)
+    }
 
     return (
         <button
@@ -30,7 +34,7 @@ export default function Button({ children, colorScheme, onClick, sizeOfButton, v
                 sizeOfButton && styles[`baseButton--${sizeOfButton}`],
                 variant && styles[`baseButton--${variant}`],
             )}
-            onClick={!isDisabled ? onClick : undefined} 
+            onClick={handleClick} 
             disabled={isDisabled}
         >
             {leftIcon && <span className={styles.icon}>{renderIcon(leftIcon)}</span>}
